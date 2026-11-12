@@ -1,4 +1,5 @@
 <script setup>
+// https://vuejs.org/guide/components/provide-inject.html#provide
 import { ref, computed, provide, onMounted, nextTick } from "vue";
 import { useRoute, RouterLink } from "vue-router";
 import SectionTitle from "@/components/SectionTitle.vue";
