@@ -1,38 +1,54 @@
-# sgl
+# SGL — Supernova Gaming League
 
-This template should help get you started developing with Vue 3 in Vite.
+A results site for Supernova Gaming League, the Counter-Strike tournament organiser I co-founded in 2022. It shows SGL Season 4: Starfire with real data, in SGL's own brand.
 
-## Recommended IDE Setup
+**Live:** https://sgl.ckbreuning.com
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Built by Christian Klitgaard Breuning as case 03 in my portfolio (Multimedia Design, UCN, 2026).
 
-## Recommended Browser Setup
+## What it does
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- Season page with tabs: matches, groups, playoffs, teams and production
+- Group standings, the playoff bracket and the champion are calculated from the match results
+- Team pop-ups with roster, flags and the team's results
+- Search across teams, players and coaches
+- Champions page and a featured Match of the Day
+- Keyboard-friendly tabs, focus moved to the main content on page change, reduced motion respected
 
-## Customize configuration
+## Built with
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- [Vue 3](https://vuejs.org/) (Composition API, `<script setup>`)
+- [Vite](https://vite.dev/)
+- [Vue Router](https://router.vuejs.org/) (hash history, so it runs on one.com without server setup)
+- [Font Awesome 7](https://fontawesome.com/) and Google Fonts (Russo One, Anton, Barlow)
+- Flags from [flagcdn.com](https://flagcdn.com/)
 
-## Project Setup
+## Data
 
-```sh
+The season is stored in plain JavaScript files in `src/data/`:
+
+- `tournaments.js` — seasons, groups, prize pool, production crew
+- `teams.js` — teams, rosters and logos
+- `matches.js` — every match, linked to teams and season by id
+- `helpers.js` — functions that work out winners, standings, placements and the champion
+
+Source for results and rosters: [Liquipedia](https://liquipedia.net/counterstrike/SGL/Season_4/Starfire).
+
+## Run it locally
+
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
 
-### Compile and Minify for Production
+Build for production:
 
-```sh
+```bash
 npm run build
 ```
+
+Upload the contents of `dist/` to the web server. `public/.htaccess` sets cache rules for the built files.
+
+## Credits
+
+Team logos and the SGL brand belong to their owners and are used for this archive of SGL's own tournament.
