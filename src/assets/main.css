@@ -1,0 +1,172 @@
+:root {
+  --black: 9 9 9;
+  --panel: 24 22 28;
+  --line: 255 255 255;
+
+  --purple-deep: 75 11 130;
+  --purple: 128 35 178;
+  --purple-light: 155 77 202;
+  --purple-text: 186 140 230;
+  --white: 246 243 238;
+  --plate: 200 200 200;
+
+  --slate: 43 52 69;
+  --group-a: 128 22 32;
+  --group-b: 196 112 40;
+  --group-c: 232 184 40;
+  --coral: 242 139 130;
+  --caster: 88 106 145;
+
+  --font-display: "Russo One", "Arial Black", sans-serif;
+  --font-tall: "Anton", "Impact", sans-serif;
+  --font-body: "Barlow", "Segoe UI", Arial, sans-serif;
+
+  --frame: 18px;
+
+  --max: 1200px;
+}
+
+@media (min-width: 900px) {
+  :root {
+    --frame: 22px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+figure,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#app {
+  position: relative;
+}
+
+html {
+  color-scheme: dark;
+  scrollbar-gutter: stable;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+body {
+  min-height: 100vh;
+  background-color: rgb(var(--black));
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgb(var(--purple-deep) / 0.45), transparent 70%);
+  background-attachment: fixed;
+  color: rgb(var(--white));
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100lvh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  background-image: url("./brand/topo.svg");
+  background-position: center;
+  background-size: cover;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100lvh;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+a {
+  color: rgb(var(--purple-text));
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--purple-text));
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  top: calc(var(--frame) + 8px);
+  left: calc(var(--frame) + 8px);
+  z-index: 60;
+  padding: 8px 16px;
+  background-color: rgb(var(--purple));
+  color: rgb(var(--white));
+  font-family: var(--font-display);
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
